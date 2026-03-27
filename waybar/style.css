@@ -1,0 +1,139 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+    font-size: 11px;
+
+
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+#workspaces {
+	transition: all 1050ms ease-in-out;
+
+}
+
+#workspaces button {
+    padding: 0 5px;
+    margin: 0 2px;
+    transition: all 200ms ease-in-out;
+    background: transparent;
+    color: white;
+    border-bottom: 3px solid transparent;
+    
+}
+
+#workspaces button.active {
+	border-radius: 100;
+	min-width: 35px;
+	background: #e93a46;
+	color: white;
+
+
+}
+
+#clock {
+    font-weight: 700;
+    color: white;
+}
+
+#battery {
+    background-color: #b7d8aa;
+    color: black;
+    padding: 0 5px;
+    border-radius: 5;
+    
+}
+
+#pulseaudio {
+	background-color: #e93a46; 
+	color: white;
+	padding: 0 5px;
+	border-radius: 5;
+}
+
+#network {
+	background-color: black;
+	color: white;
+	padding: 0 5px;
+	border-radius: 5;
+}
+
+#custom-warp.connected {
+	background-color: white;
+	color: #f38020;
+	padding: 0 5px;
+	border-radius: 5;
+}
+
+#custom-warp.connecting {
+	background-color: #6e6e6e;
+	color: #f38020;
+	padding: 0 5px;
+	border-radius: 5;
+
+	animation-name: blinker;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes blinker {
+	from { opacity: 1.0 }
+	50%  { opacity: 0.3 }
+	to   { opacity: 1.0 }
+}
+
+#custom-warp.disconnected {
+	background-color: white;
+	color: #6e6e6e;
+	padding: 0 5px;
+	border-radius: 5;
+}
+
+#custom-tailscale.connected {
+    background-color: #242424;
+    color: #ffffff;
+    padding: 0 5px;
+    border-radius: 5;
+}
+
+#custom-tailscale.connecting {
+    background-color: #242424;
+    color: #ffffff;
+    padding: 0 5px;
+    border-radius: 5;
+
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blinker {
+	from { opacity: 1.0 }
+	50%  { opacity: 0.3 }
+	to   { opacity: 1.0 }
+}
+
+#custom-tailscale.disconnected {
+    background-color: #3a3a3a;
+    color: #6e6e6e;
+    padding: 0 5px;
+    border-radius: 5;
+}
