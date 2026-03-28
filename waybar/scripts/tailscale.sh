@@ -8,6 +8,6 @@ if [ "$STATUS" = "Running" ]; then
 else
     warp-cli connect
     sleep 2
-    sudo tailscale up --netfilter-mode=off
+    sudo tailscale up
     notify-send "Tailscale" "Connected"
 fi
