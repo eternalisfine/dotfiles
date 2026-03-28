@@ -75,12 +75,14 @@
 	"on-click": "warp-cli connect",
 	"on-click-right": "warp-cli disconnect"
     },
-    
+
     "custom/tailscale": {
-	"exec": "~/.config/waybar/scripts/tailscale-status.sh",
-    	"interval": 1,
+    	"format": "{}",
     	"return-type": "json",
-    	"on-click": "pkexec bash ~/.config/waybar/scripts/tailscale.sh",
-    	"tooltip": true
+    	"interval": 1,
+    	"exec": "~/.config/waybar/scripts/tailscale-status.sh",
+    	"on-click": "pkexec /usr/bin/bash /home/deepyaman/.config/waybar/scripts/tailscale-connect.sh",
+    	"on-click-right": "pkexec /usr/bin/bash /home/deepyaman/.config/waybar/scripts/tailscale-disconnect.sh",
+	"tooltip": true
     }
 }
