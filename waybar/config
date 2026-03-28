@@ -80,9 +80,9 @@
     	"format": "{}",
     	"return-type": "json",
     	"interval": 1,
-    	"exec": "~/.config/waybar/scripts/tailscale-status.sh",
-    	"on-click": "pkexec /usr/bin/bash /home/deepyaman/.config/waybar/scripts/tailscale-connect.sh",
-    	"on-click-right": "pkexec /usr/bin/bash /home/deepyaman/.config/waybar/scripts/tailscale-disconnect.sh",
-	"tooltip": true
+    	"exec": "/home/deepyaman/.config/waybar/scripts/tailscale-status.sh",
+    	"on-click": "/home/deepyaman/.config/waybar/scripts/tailscale-connect.sh",
+    	"on-click-right": "/home/deepyaman/.config/waybar/scripts/tailscale-disconnect.sh",
+    	"tooltip": true
     }
 }
