@@ -6,8 +6,24 @@
     
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/warp","custom/tailscale","pulseaudio", "network", "battery"],
+  "modules-right": ["mpris","custom/warp","custom/tailscale","pulseaudio", "network", "battery"],
 
+  "mpris": {
+    "interval": 5,
+    "format": "{status_icon} {title} - {artist}",
+    "format-stopped": "{status-icon}",
+    "artist-len": 15,
+    "title-len": 15,
+    "player-icons": {
+		  "firefox": "",
+	  	"chromium": ""
+		},
+    "status-icons": {
+			"playing": "",
+			"paused": "",
+			"stopped": ""
+		},
+  },
 
   "battery": {
     "format": "{capacity}% {icon}",
@@ -18,7 +34,7 @@
   },
 
   "clock": {
-    "format-alt": "{:%a, %d. %b  %H:%M}"
+    "format-alt": "{:%a, %d %b - %H:%M}"
   },
 
   "pulseaudio": {
@@ -41,11 +57,11 @@
   "network": {
     "interface": "wlan0",
     "format": "{ifname}",
-    "format-wifi": "{essid}({signalStrength}%)  ",
+    "format-wifi": "{essid}  ",
   	"format-ethernet": "{ipaddr}/{cidr} 󰊗 ",
 	  "format-disconnected": "󰖪", //An empty format will hide the module.
     "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
-    "tooltip-format-wifi": "{essid}  ",
+    "tooltip-format-wifi": "{essid}({signalStrength}%)  ",
     "tooltip-format-ethernet": "{ifname}  ",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50
