@@ -2,7 +2,7 @@
 
 # Toggle Bluetooth Power
 if bluetoothctl show | grep -q "Powered: yes"; then
-    bluetoothctl power off
+  bluetoothctl power off
 else
-    bluetoothctl power on
+  bluetoothctl power on
 fi

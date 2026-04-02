@@ -6,7 +6,7 @@
     
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["mpris","custom/warp","custom/tailscale","pulseaudio", "network", "battery"],
+  "modules-right": ["bluetooth","mpris","custom/warp","custom/tailscale","pulseaudio", "network", "battery"],
 
   "mpris": {
     "interval": 5,
@@ -24,6 +24,15 @@
 			"stopped": ""
 		},
   },
+
+  "bluetooth": {
+      "interval": 5,
+      "format": "{}",
+	    "return-type": "json",
+	    "exec": "/home/deepyaman/.config/waybar/scripts/bluetooth_status.sh",
+	    "on-click": "/home/deepyaman//.config/waybar/scripts/bluetooth_toggle.sh",
+      "tooltip": true
+    },
 
   "battery": {
     "format": "{capacity}% {icon}",

@@ -54,6 +54,13 @@ tooltip label {
   background: rgba(233, 58, 70, 1);
 }
 
+#bluetooth {
+  color: #242424;
+  background-color: white;
+  padding: 0 5px;
+  border-radius: 5;
+}
+
 #clock {
     font-weight: 700;
     color: white;
