@@ -9,7 +9,7 @@
   "modules-right": ["bluetooth","mpris","custom/warp","custom/tailscale","pulseaudio", "network", "battery"],
 
   "mpris": {
-    "interval": 5,
+    "interval": 1,
     "format": "{status_icon} {title} - {artist}",
     "format-stopped": "{status-icon}",
     "artist-len": 15,
