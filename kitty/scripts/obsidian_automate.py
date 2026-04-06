@@ -1,7 +1,7 @@
 import subprocess
 import datetime
 
-def good_morning():
+def today():
     now = datetime.datetime.now()
     hour = now.hour
     today = now.strftime("%Y-%m-%d")
@@ -14,7 +14,11 @@ def good_morning():
         greeting = "Good evening"
 
     print(f"{greeting}! Launching Obsidian...")
-    subprocess.Popen(["obsidian", f"obsidian://daily"])
-    print( f" Opening today's note : {today}. Have a productive day!")
 
-good_morning()
+    subprocess.run(["hyprctl", "dispatch", "workspace", "10"])
+    
+    subprocess.Popen(["obsidian", f"obsidian://daily"])
+    
+    print( f" Opening today's note : {today}. Have a productive day! ")
+
+today()
