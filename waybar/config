@@ -6,8 +6,12 @@
     
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["bluetooth","mpris","custom/warp","custom/tailscale","pulseaudio", "network", "battery"],
+  "modules-right": ["bluetooth","mpris","custom/warp","custom/tailscale","pulseaudio", "tray", "network", "battery"],
 
+  "tray": {
+      "spacing": 10
+    },
+  
   "mpris": {
     "interval": 1,
     "format": "{status_icon} {title} - {artist}",
@@ -44,6 +48,7 @@
 
   "clock": {
     "format-alt": "{:%a, %d %b - %H:%M}",
+    "on-click": "gsimplecal",
     "tooltip": false
   },
 
