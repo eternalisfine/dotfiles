@@ -1,0 +1,9 @@
+[SddmGreeterTheme]
+Name=My Video Theme
+Description=A custom amoled video theme
+Author=deepyaman
+Copyright=deepyaman
+License=GPL
+Type=sddm-theme
+Version=1.0
+MainScript=Main.qml
