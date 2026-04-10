@@ -1,12 +1,10 @@
 import QtQuick 2.15
 import QtMultimedia 5.15
 import SddmComponents 2.0
-
 Rectangle {
     width: 1920
     height: 1080
     color: "#000000"
-
     MediaPlayer {
         id: myVideo
         source: Qt.resolvedUrl("video/kaneki-ken.3840x2160.mp4")
@@ -18,28 +16,24 @@ Rectangle {
         source: myVideo
         fillMode: VideoOutput.PreserveAspectCrop
     }
-
     Item {
         id: overlay
         anchors.fill: parent
-
         TextConstants { id: textConstants }
-
         Connections {
             target: sddm
             onLoginSucceeded: {
                 statusText.text  = ""
-                statusText.color = "#ff007f"
+                statusText.color = "#ff0000"
             }
             onLoginFailed: {
                 statusText.text  = textConstants.loginFailed
-                statusText.color = "#ff4444"
+                statusText.color = "#ff0000"
                 shakeAnimation.restart()
                 passwordField.text = ""
                 passwordField.forceActiveFocus()
             }
         }
-
         Column {
             id: clockBlock
             anchors {
@@ -48,16 +42,14 @@ Rectangle {
                 margins: 52
             }
             spacing: 4
-
             Text {
                 id: timeLabel
                 font.pixelSize:  112
                 font.weight:     Font.Thin
                 font.letterSpacing: -4
-                color: "#ff007f"
+                color: "#ff0000"
                 style: Text.Raised
-                styleColor: Qt.rgba(1, 0, 0.498, 0.35)
-
+                styleColor: Qt.rgba(1, 0, 0, 0.35)
                 Timer {
                     interval: 1000
                     running:  true
@@ -71,14 +63,12 @@ Rectangle {
                     }
                 }
             }
-
             Text {
                 id: dateLabel
                 font.pixelSize: 22
                 font.weight:    Font.Light
                 font.letterSpacing: 1.5
                 color: Qt.rgba(1, 1, 1, 0.55)
-
                 Timer {
                     interval: 60000
                     running:  true
@@ -93,13 +83,11 @@ Rectangle {
                 }
             }
         }
-
         Column {
             id: loginBlock
             anchors.centerIn: parent
             spacing: 14
             width: 340
-
             Text {
                 id: usernameLabel
                 text:  userModel.lastUser
@@ -108,12 +96,10 @@ Rectangle {
                 font.letterSpacing: 2.5
                 anchors.horizontalCenter: parent.horizontalCenter
             }
-
             Item {
                 id: pillWrapper
                 width:  parent.width
                 height: 48
-
                 SequentialAnimation {
                     id: shakeAnimation
                     loops: 1
@@ -125,16 +111,14 @@ Rectangle {
                     PropertyAnimation { target: pillWrapper; property: "x"; to:  -4; duration: 35; easing.type: Easing.InOutQuad }
                     PropertyAnimation { target: pillWrapper; property: "x"; to:   0; duration: 30; easing.type: Easing.OutQuad }
                 }
-
                 Rectangle {
                     anchors.fill: parent
                     radius:       24
                     color:        Qt.rgba(1, 1, 1, 0.04)
-                    border.color: passwordField.activeFocus ? Qt.rgba(1, 0, 0.498, 0.55) : Qt.rgba(1, 1, 1, 0.10)
+                    border.color: passwordField.activeFocus ? Qt.rgba(1, 0, 0, 0.55) : Qt.rgba(1, 1, 1, 0.10)
                     border.width: 1
                     Behavior on border.color { ColorAnimation { duration: 200 } }
                 }
-
                 Rectangle {
                     id: accentLine
                     anchors {
@@ -146,19 +130,17 @@ Rectangle {
                     }
                     height: 2
                     radius: 1
-                    color:  passwordField.activeFocus ? "#ff007f" : "transparent"
+                    color:  passwordField.activeFocus ? "#ff0000" : "transparent"
                     Behavior on color { ColorAnimation { duration: 220 } }
-
                     Rectangle {
                         anchors.centerIn: parent
                         width:  parent.width
                         height: 8
                         radius: 4
-                        color:  Qt.rgba(1, 0, 0.498, passwordField.activeFocus ? 0.25 : 0)
+                        color:  Qt.rgba(1, 0, 0, passwordField.activeFocus ? 0.25 : 0)
                         Behavior on color { ColorAnimation { duration: 220 } }
                     }
                 }
-
                 Text {
                     id: lockIcon
                     anchors {
@@ -170,7 +152,6 @@ Rectangle {
                     font.pixelSize: 15
                     opacity: 0.45
                 }
-
                 TextInput {
                     id: passwordField
                     anchors {
@@ -185,9 +166,8 @@ Rectangle {
                     color:              "#ffffff"
                     font.pixelSize:     16
                     font.letterSpacing: 1
-                    selectionColor:     Qt.rgba(1, 0, 0.498, 0.45)
+                    selectionColor:     Qt.rgba(1, 0, 0, 0.45)
                     clip:               true
-
                     Text {
                         anchors.fill: parent
                         text:         textConstants.password
@@ -195,24 +175,21 @@ Rectangle {
                         font:         passwordField.font
                         visible:      passwordField.text.length === 0 && !passwordField.activeFocus
                     }
-
                     Keys.onReturnPressed: {
                         statusText.text = ""
                         sddm.login(userModel.lastUser, passwordField.text, sessionModel.lastIndex)
                     }
                 }
             }
-
             Text {
                 id: statusText
                 anchors.horizontalCenter: parent.horizontalCenter
                 text:  ""
-                color: "#ff4444"
+                color: "#ff0000"
                 font.pixelSize:  12
                 font.letterSpacing: 1
             }
         }
     }
-
     Component.onCompleted: passwordField.forceActiveFocus()
 }
