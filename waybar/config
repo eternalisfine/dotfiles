@@ -9,7 +9,9 @@
   "modules-right": ["bluetooth","mpris","custom/warp","custom/tailscale","pulseaudio", "tray", "network", "battery"],
 
   "tray": {
-      "spacing": 10
+      "spacing": 10,
+      "icon-size": 18,
+      "show-passive-items": true
     },
   
   "mpris": {
@@ -31,8 +33,7 @@
 
   "bluetooth": {
       "interval": 5,
-      "format": "{}",
-	    "return-type": "json",
+  	    "return-type": "json",
 	    "exec": "/home/deepyaman/.config/waybar/scripts/bluetooth_status.sh",
 	    "on-click": "/home/deepyaman//.config/waybar/scripts/bluetooth_toggle.sh",
       "tooltip": true
@@ -119,3 +120,4 @@
     "tooltip": true
   }
 }
+    "format": "{}",
