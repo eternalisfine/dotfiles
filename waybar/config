@@ -40,8 +40,8 @@
     },
 
   "battery": {
+    "bat": "BAT0",
     "format": "{capacity}% {icon}",
-    "interval": 1,
     "format-icons": {
         "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
