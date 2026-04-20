@@ -33,7 +33,7 @@
 
   "bluetooth": {
       "interval": 5,
-  	    "return-type": "json",
+  	  "return-type": "json",
 	    "exec": "/home/deepyaman/.config/waybar/scripts/bluetooth_status.sh",
 	    "on-click": "/home/deepyaman//.config/waybar/scripts/bluetooth_toggle.sh",
       "tooltip": true
@@ -41,10 +41,17 @@
 
   "battery": {
     "format": "{capacity}% {icon}",
+    "interval": 1,
     "format-icons": {
         "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
-    }
+    },
+    "states": {
+      "critical": 10,
+      "low": 20,
+      "warning": 20
+    },
+    "on-update": "~/.config/waybar/scripts/battery-alert.sh"
   },
 
   "clock": {

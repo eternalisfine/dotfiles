@@ -87,7 +87,31 @@ tooltip label {
     background-color: #ffffff;
     padding: 0 5px;
     border-radius: 5;
-    
+}
+
+#battery.warning{
+  background-color: #f5a623;
+  color: #242424;
+  padding: 0 5px;
+  border-radius: 5;
+}
+
+#battery.low{
+  background-color: #e93a46;
+  color: white;
+  padding: 0 5px;
+  border-radius: 5;
+}
+
+#battery.critical {
+  background-color: #e93a46;
+  color: white;
+  padding: 0 5px;
+  border-radius: 5;
+  animation-name: blinker;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 #pulseaudio {
