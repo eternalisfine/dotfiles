@@ -70,6 +70,13 @@ tooltip label {
   background: rgba(233, 58, 70, 1);
 }
 
+#custom-clipboard {
+  background-color: #242424;
+  color: white;
+  padding: 0 15px;
+  border-radius: 5;
+}
+
 #bluetooth {
   color: #242424;
   background-color: white;

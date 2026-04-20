@@ -6,13 +6,19 @@
     
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["bluetooth","mpris","custom/warp","custom/tailscale","pulseaudio", "tray", "network", "battery"],
+  "modules-right": ["custom/clipboard","bluetooth","mpris","custom/warp","custom/tailscale","pulseaudio", "tray", "network", "battery"],
 
   "tray": {
       "spacing": 10,
       "icon-size": 18,
       "show-passive-items": true
     },
+
+  "custom/clipboard": {
+    "format": "󰅇",
+    "on-click": "~/.config/waybar/scripts/clipboard.sh",
+    "tooltip": false
+  },
   
   "mpris": {
     "interval": 1,
