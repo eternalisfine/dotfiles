@@ -1,14 +1,14 @@
+@import url("/home/deepyaman/.config/themes/current/waybar.css");
+
 * {
     border: none;
     border-radius: 0;
     font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo","JetBrainsMono Nerd Font","CaskaydiaCove Nerd Font", "Font Awesome 6 Free Solid", "Font Awesome 6 Free Regular", "Font Awesome 6 Brands Regular", "Symbols Nerd Font Mono", "Symbols Nerd Font";
     font-size: 14px;
 
-
     min-height: 0;
     margin: 0;
     padding: 0;
-
 }
 
 window#waybar {
@@ -16,16 +16,16 @@ window#waybar {
 }
 
 tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
+    background: @tooltip-bg;
+    border: 1px solid @tooltip-border;
 }
+
 tooltip label {
-  color: white;
+    color: @text-main;
 }
 
 #workspaces {
-	transition: all 1050ms ease-in-out;
-
+    transition: all 1050ms ease-in-out;
 }
 
 #workspaces button {
@@ -33,151 +33,116 @@ tooltip label {
     margin: 0 2px;
     transition: all 200ms ease-in-out;
     background: transparent;
-    color: white;
+    color: @text-main;
     border-bottom: 3px solid transparent;
-    
 }
 
 #workspaces button.active {
-	border-radius: 100;
-	min-width: 35px;
-	background: #e93a46;
-	color: white;
-
-
+    border-radius: 100px;
+    min-width: 35px;
+    background: @accent;
+    color: @text-main;
 }
 
 #tray {
-  background-color: #242424;
-  border-radius: 10;
-  padding: 0 30px;
+    background-color: @module-bg;
+    border-radius: 10px;
+    padding: 0 30px;
 }
 
 #tray > .passive {
-  -gtk-icon-effect: dim;
+    -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: #f38020
+    -gtk-icon-effect: highlight;
+    background-color: @alert;
 }
 
 #mpris {
-  color: white;
-  padding: 0px 10px;
-	border-radius: 10px;
-  background: rgba(233, 58, 70, 1);
+    color: @text-main;
+    padding: 0px 10px;
+    border-radius: 10px;
+    background: @accent;
 }
 
 #custom-clipboard {
-  background-color: #242424;
-  color: white;
-  padding: 0 15px;
-  border-radius: 5;
+    background-color: @module-bg;
+    color: @text-main;
+    padding: 0 15px;
+    border-radius: 5px;
 }
 
 #bluetooth {
-  color: white;
-  background-color: black;
-  padding: 0 5px;
-  border-radius: 10;
+    color: @text-main;
+    background-color: @module-dark;
+    padding: 0 5px;
+    border-radius: 10px;
 }
 
 #clock {
     font-weight: 700;
-    color: white;
+    color: @text-main;
 }
 
 #battery {
-    color: #242424;
-    background-color: #ffffff;
+    color: @text-dark;
+    background-color: @module-light;
     padding: 0 5px;
-    border-radius: 5;
+    border-radius: 5px;
 }
 
-#battery.warning{
-  background-color: #f5a623;
-  color: #242424;
-  padding: 0 5px;
-  border-radius: 5;
+#battery.warning {
+    background-color: @warning;
+    color: @text-dark;
+    padding: 0 5px;
+    border-radius: 5px;
 }
 
-#battery.low{
-  background-color: #e93a46;
-  color: white;
-  padding: 0 5px;
-  border-radius: 5;
+#battery.low {
+    background-color: @accent;
+    color: @text-main;
+    padding: 0 5px;
+    border-radius: 5px;
 }
 
 #battery.critical {
-  background-color: #e93a46;
-  color: white;
-  padding: 0 5px;
-  border-radius: 5;
-  animation-name: blinker;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+    background-color: @accent;
+    color: @text-main;
+    padding: 0 5px;
+    border-radius: 5px;
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 #pulseaudio {
-	background-color: black; 
-	color: white;
-	padding: 0 5px;
-	border-radius: 10;
+    background-color: @module-dark; 
+    color: @text-main;
+    padding: 0 5px;
+    border-radius: 10px;
 }
 
 #network {
-	background-color: black;
-	color: white;
-	padding: 0 5px;
-	border-radius: 5;
+    background-color: @module-dark;
+    color: @text-main;
+    padding: 0 5px;
+    border-radius: 5px;
 }
 
 #custom-warp.connected {
-	background-color: white;
-	color: #f38020;
-	padding: 0 5px;
-	border-radius: 5;
+    background-color: @module-light;
+    color: @alert;
+    padding: 0 5px;
+    border-radius: 5px;
 }
 
 #custom-warp.connecting {
-	background-color: #6e6e6e;
-	color: #f38020;
-	padding: 0 5px;
-	border-radius: 5;
-
-	animation-name: blinker;
-	animation-duration: 1s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-}
-
-@keyframes blinker {
-	from { opacity: 1.0 }
-	50%  { opacity: 0.3 }
-	to   { opacity: 1.0 }
-}
-
-#custom-warp.disconnected {
-	background-color: white;
-	color: #6e6e6e;
-	padding: 0 5px;
-	border-radius: 5;
-}
-
-#custom-tailscale.connected {
-    background-color: #242424;
-    color: #ffffff;
+    background-color: @muted;
+    color: @alert;
     padding: 0 5px;
-    border-radius: 5;
-}
-
-#custom-tailscale.connecting {
-    background-color: #242424;
-    color: #ffffff;
-    padding: 0 5px;
-    border-radius: 5;
+    border-radius: 5px;
 
     animation-name: blinker;
     animation-duration: 1s;
@@ -185,15 +150,41 @@ tooltip label {
     animation-iteration-count: infinite;
 }
 
-@keyframes blinker {
-	from { opacity: 1.0 }
-	50%  { opacity: 0.3 }
-	to   { opacity: 1.0 }
+#custom-warp.disconnected {
+    background-color: @module-light;
+    color: @muted;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+#custom-tailscale.connected {
+    background-color: @module-bg;
+    color: @module-light;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+#custom-tailscale.connecting {
+    background-color: @module-bg;
+    color: @module-light;
+    padding: 0 5px;
+    border-radius: 5px;
+
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 #custom-tailscale.disconnected {
-    background-color: #3a3a3a;
-    color: #6e6e6e;
+    background-color: @muted-dark;
+    color: @muted;
     padding: 0 5px;
-    border-radius: 5;
+    border-radius: 5px;
+}
+
+@keyframes blinker {
+    from { opacity: 1.0 }
+    50%  { opacity: 0.3 }
+    to   { opacity: 1.0 }
 }
