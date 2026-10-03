@@ -29,5 +29,4 @@ CURSOR_THEME="breeze_cursors"
 CURSOR_SIZE="24"
 
 # Wallpaper
-WALLPAPER="$HOME/.config/hypr/themes/catppuccin-mocha/wallpaper.jpg"
-MONITOR="eDP-1"
+WALLPAPER="$HOME/.config/themes/tokyo-ghoul-red/active_wallpaper"

@@ -6,17 +6,17 @@
     
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/clipboard","bluetooth","mpris","custom/warp","custom/tailscale","pulseaudio", "tray", "network", "battery"],
+  "modules-right": ["custom/clipboard", "bluetooth", "mpris", "custom/warp", "custom/tailscale", "pulseaudio", "tray", "network", "battery"],
 
   "tray": {
-      "spacing": 10,
-      "icon-size": 18,
-      "show-passive-items": true
-    },
+    "spacing": 10,
+    "icon-size": 18,
+    "show-passive-items": true
+  },
 
   "custom/clipboard": {
     "format": "󰅇",
-    "on-click": "~/.config/waybar/scripts/clipboard.sh",
+    "on-click": "/home/deepyaman/.config/waybar/scripts/clipboard.sh",
     "tooltip": false
   },
   
@@ -27,37 +27,37 @@
     "artist-len": 15,
     "title-len": 15,
     "player-icons": {
-		  "firefox": "",
-	  	"chromium": ""
-		},
+      "firefox": "",
+      "chromium": ""
+    },
     "status-icons": {
-			"playing": "",
-			"paused": "",
-			"stopped": ""
-		},
+      "playing": "",
+      "paused": "",
+      "stopped": ""
+    }
   },
 
   "bluetooth": {
-      "interval": 5,
-  	  "return-type": "json",
-	    "exec": "/home/deepyaman/.config/waybar/scripts/bluetooth_status.sh",
-	    "on-click": "/home/deepyaman//.config/waybar/scripts/bluetooth_toggle.sh",
-      "tooltip": true
-    },
+    "interval": 5,
+    "return-type": "json",
+    "exec": "/home/deepyaman/.config/waybar/scripts/bluetooth_status.sh",
+    "on-click": "/home/deepyaman/.config/waybar/scripts/bluetooth_toggle.sh",
+    "tooltip": true
+  },
 
   "battery": {
     "bat": "BAT0",
     "format": "{capacity}% {icon}",
     "format-icons": {
-        "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+      "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
     },
     "states": {
       "critical": 10,
       "low": 20,
       "warning": 20
     },
-    "on-update": "~/.config/waybar/scripts/battery-alert.sh"
+    "on-update": "/home/deepyaman/.config/waybar/scripts/battery-alert.sh"
   },
 
   "clock": {
@@ -78,17 +78,18 @@
       "headset": " ",
       "default": [" ", " "]
     },
-	  "scroll-step": 1,
+    "scroll-step": 1,
     "on-click": "pavucontrol",
     "ignored-sinks": ["Easy Effects Sink"]
   },
 
   "network": {
+    "on-click": "/home/deepyaman/.config/waybar/scripts/rofi-wifi-menu.sh",
     "interface": "wlan0",
     "format": "{ifname}",
     "format-wifi": "{essid}  ",
-  	"format-ethernet": "{ipaddr}/{cidr} 󰊗 ",
-	  "format-disconnected": "󰖪", //An empty format will hide the module.
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗 ",
+    "format-disconnected": "󰖪",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
     "tooltip-format-wifi": "{essid}({signalStrength}%)  ",
     "tooltip-format-ethernet": "{ifname}  ",
@@ -97,30 +98,29 @@
   },
 
   "hyprland/workspaces": {
-	  "format": "{name}: {icon}",
-	  "format-icons": {
-		  "1": "",
-		  "2": "",
-		  "3": "",
-		  "4": "",
-		  "5": "",
-		  "active": "",
-		  "default": ""
-	  },
-
+    "format": "{name}: {icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "active": "",
+      "default": ""
+    },
     "persistent-workspaces": {
-              "*": 5, // 5 workspaces by default on every monitor
-              "HDMI-A-1": 3 // but only three on HDMI-A-1
+      "*": 5,
+      "HDMI-A-1": 3
     }
   },
 
   "custom/warp": {
-	  "format": "{}",
-	  "return-type": "json",
-	  "interval": 1,
-	  "exec": "~/.config/waybar/scripts/warp.sh",
-	  "on-click": "warp-cli connect",
-	  "on-click-right": "warp-cli disconnect"
+    "format": "{}",
+    "return-type": "json",
+    "interval": 1,
+    "exec": "/home/deepyaman/.config/waybar/scripts/warp.sh",
+    "on-click": "warp-cli connect",
+    "on-click-right": "warp-cli disconnect"
   },
 
   "custom/tailscale": {
@@ -133,4 +133,3 @@
     "tooltip": true
   }
 }
-    "format": "{}",
