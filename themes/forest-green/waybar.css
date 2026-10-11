@@ -1,0 +1,12 @@
+@define-color accent #74c10f;
+@define-color module-bg #0c1109;
+@define-color module-dark #000000;
+@define-color module-light #ffffff;
+@define-color text-main #ffffff;
+@define-color text-dark #070a05;
+@define-color warning #f5a623;
+@define-color alert #f38020;
+@define-color muted #5f6b50;
+@define-color muted-dark #253613;
+@define-color tooltip-bg rgba(12, 17, 9, 0.6);
+@define-color tooltip-border rgba(174, 227, 107, 0.3);
