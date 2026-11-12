@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 # ~/.config/hypr/scripts/toggle-tabmode.sh
 # Toggles tab mode on the current workspace only
+#
+# Updated for the Lua config (Hyprland 0.57):
+#  - hyprctl dispatch now takes Lua expressions (hl.dsp.*)
+#  - the new-window rules are written to mode.lua instead of mode.conf
 
 STATE_FILE="/tmp/hypr_tabmode"
 TILED_FILE="/tmp/hypr_tabmode_tiled"
-MODE_CONF="$HOME/.config/hypr/mode.conf"
+MODE_LUA="$HOME/.config/hypr/mode.lua"
 W=1918
 H=1053
 X=1
@@ -12,8 +16,13 @@ Y=26
 
 snap_window() {
   local addr="$1"
-  hyprctl dispatch resizewindowpixel "exact $W $H,address:$addr"
-  hyprctl dispatch movewindowpixel "exact $X $Y,address:$addr"
+  hyprctl dispatch "hl.dsp.window.resize({ x = $W, y = $H, window = 'address:$addr' })"
+  hyprctl dispatch "hl.dsp.window.move({ x = $X, y = $Y, window = 'address:$addr' })"
+}
+
+toggle_float() {
+  local addr="$1"
+  hyprctl dispatch "hl.dsp.window.float({ action = 'toggle', window = 'address:$addr' })"
 }
 
 enter_tab_mode() {
@@ -22,10 +31,15 @@ enter_tab_mode() {
   touch "$STATE_FILE"
 
   # Rules for new windows opened while in tab mode
-  cat >"$MODE_CONF" <<EOF
-windowrule = float on, match:class .*
-windowrule = size $W $H, match:class .*
-windowrule = move $X $Y, match:class .*
+  cat >"$MODE_LUA" <<EOF
+hl.window_rule({
+    name  = "tabmode",
+    match = { class = ".*" },
+
+    float = true,
+    size  = "$W $H",
+    move  = "$X $Y",
+})
 EOF
 
   # Save tiled windows on current workspace only
@@ -38,7 +52,7 @@ EOF
 
   # Float and snap originally tiled windows
   while read -r addr; do
-    hyprctl dispatch togglefloating "address:$addr"
+    toggle_float "$addr"
     sleep 0.05
     snap_window "$addr"
   done <"$TILED_FILE"
@@ -62,14 +76,14 @@ exit_tab_mode() {
         --arg addr "$addr" \
         '.[] | select(.address == $addr) | .floating')
       if [[ "$is_floating" == "true" ]]; then
-        hyprctl dispatch togglefloating "address:$addr"
+        toggle_float "$addr"
       fi
     done <"$TILED_FILE"
     rm -f "$TILED_FILE"
   fi
 
   rm -f "$STATE_FILE"
-  true >"$MODE_CONF"
+  true >"$MODE_LUA"
   hyprctl reload
 
   notify-send "Tiling Mode" "ON" -t 1500
